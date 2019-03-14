@@ -2,7 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a85e8ba3-2702-4b8e-a615-f69275b70975" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/META-INF/educationProject.dyplom.main.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/controller/ScrapingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/domain/football/FootballMatch.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/domain/football/TeamTotalCoef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/domain/football/TotalCoef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/domain/football/WinCoef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/domain/football/WinOrDrawCoef.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/exception/ParserException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/service/ParserFootball.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/service/ParserHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/service/ParserLinks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/classes/diploma/service/Scraper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/classes/META-INF/educationProject.dyplom.main.kotlin_module" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -118,8 +148,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="127" column="58" lean-forward="true" selection-start-line="127" selection-start-column="58" selection-end-line="127" selection-end-column="58" />
+            <state relative-caret-position="510">
+              <caret line="127" column="58" selection-start-line="127" selection-start-column="58" selection-end-line="127" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -291,7 +321,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552579653820" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552579854818" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -408,7 +438,7 @@
       <workItem from="1552557606155" duration="7111000" />
       <workItem from="1552567188979" duration="862000" />
       <workItem from="1552568083845" duration="10703000" />
-      <workItem from="1552579399334" duration="233000" />
+      <workItem from="1552579399334" duration="509000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1552577060320</created>
@@ -445,7 +475,14 @@
       <option name="project" value="LOCAL" />
       <updated>1552579490759</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2">
+      <created>1552579701342</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1552579701342</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -454,7 +491,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46085000" />
+    <option name="totallyTimeSpent" value="46343000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -467,9 +504,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6462036" visible="true" weight="0.1913646" />
-      <window_info id="Structure" order="1" sideWeight="0.35379645" side_tool="true" visible="true" weight="0.1913646" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6467818" visible="true" weight="0.1913646" />
+      <window_info id="Structure" order="1" sideWeight="0.3532182" side_tool="true" visible="true" weight="0.1913646" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -478,14 +516,14 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6761194" weight="0.30985916" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6761194" visible="true" weight="0.30985916" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49925372" weight="0.42445213" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298731" />
       <window_info anchor="bottom" id="Build" order="7" weight="0.3298731" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.3298731" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32936078" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50074625" side_tool="true" weight="0.42445213" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3091119" />
@@ -748,8 +786,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="127" column="58" lean-forward="true" selection-start-line="127" selection-start-column="58" selection-end-line="127" selection-end-column="58" />
+        <state relative-caret-position="510">
+          <caret line="127" column="58" selection-start-line="127" selection-start-column="58" selection-end-line="127" selection-end-column="58" />
         </state>
       </provider>
     </entry>
