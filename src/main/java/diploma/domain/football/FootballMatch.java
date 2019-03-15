@@ -15,4 +15,6 @@ public class FootballMatch {
     private WinOrDrawCoef winOrDrawCoef;
     private TotalCoef totalCoef;
     private TeamTotalCoef teamTotalCoef;
+
+
 }

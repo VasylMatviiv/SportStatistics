@@ -19,21 +19,22 @@ public class Scraper {
         return parseData();
     }
 
-    public void parseLinks(String url) throws IOException {
+    private void parseLinks(String url) throws IOException {
         Document doc = Jsoup.connect(url).get();
         ParserLinks parserLinks = new ParserLinks();
         links = parserLinks.parse(doc);
     }
 
-    public List<FootballMatch> parseData() {
+    private List<FootballMatch> parseData() {
         links.forEach(link -> {
-            ParserFootball parser = new ParserFootball();
+            ParserFootball parser = new ParserFootball(matches);
             try {
-                matches.addAll(parser.parseData(link));
+                parser.parseData(link);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+        System.out.println(matches.size());
         return matches;
     }
 }
