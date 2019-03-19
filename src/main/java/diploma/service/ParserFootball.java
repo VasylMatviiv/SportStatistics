@@ -2,7 +2,6 @@ package diploma.service;
 
 import diploma.domain.football.FootballMatch;
 import diploma.exception.ParserException;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
@@ -16,23 +15,26 @@ import java.util.List;
 @Slf4j
 public class ParserFootball {
 
-    final private List<FootballMatch> matches ;
+    final private List<FootballMatch> matches = new ArrayList<>();
+    final private String url;
 
-    public ParserFootball(List<FootballMatch> matches) {
-        this.matches = matches;
+    public ParserFootball(String url) {
+        this.url = url;
     }
 
-    public void parseData(String url) throws IOException {
+    public List<FootballMatch> parseData() throws IOException {
         try {
             Document doc = Jsoup.connect(url).get();
             ParserHelper parserHelper = new ParserHelper(matches);
             parserHelper.parse(doc);
-        }
-        catch (ParserException e){
+            return matches;
+        } catch (ParserException e) {
             log.error(e.setAndReturnMessage(url));
-        }
-        catch ( HttpStatusException e) {
+        } catch (HttpStatusException e) {
             log.error(e.getUrl());
         }
+        return matches;
     }
+
+
 }

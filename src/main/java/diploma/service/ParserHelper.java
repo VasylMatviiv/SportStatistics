@@ -1,17 +1,26 @@
 package diploma.service;
 
-import diploma.domain.football.*;
+import diploma.domain.football.FootballMatch;
+import diploma.domain.football.TotalCoef;
+import diploma.domain.football.WinCoef;
+import diploma.domain.football.WinOrDrawCoef;
 import diploma.exception.ParserException;
+import diploma.repo.FootballRepo;
+import diploma.utils.ParserUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.StringTokenizer;
 
 @Slf4j
 public class ParserHelper {
+    @Autowired
+    FootballRepo repo;
     private String region;
     private String league;
     final private List<FootballMatch> matches;
@@ -43,7 +52,6 @@ public class ParserHelper {
             match.setTotalCoef(parseTotalCoef(tr));
             match.setWinCoef(parseWinCoef(tr));
             match.setWinOrDrawCoef(parseWinOrDrawCoef(tr));
-            match.setTeamTotalCoef(parseTeamTotalCoef(tr));
             matches.add(match);
         } catch (Exception e) {
             log.error(new ParserException().setAndReturnMessage(element.baseUri()));
@@ -57,12 +65,13 @@ public class ParserHelper {
             region = tokenizer.nextToken();
             league = tokenizer.nextToken();
         } catch (Exception e) {
-            System.out.println("Exceprion: region =" + region + " or league " + league);
+            System.out.println("Exception: region =" + region + " or league " + league);
         }
     }
 
-    private String parseDate(Element element) {
-        return element.getAllElements().get(3).text();
+    private LocalDateTime parseDate(Element element) {
+        StringBuilder time = new StringBuilder(element.getAllElements().get(3).text());
+        return ParserUtils.parseDate(time);
     }
 
     private String parseEvent(Element element) {
@@ -93,18 +102,6 @@ public class ParserHelper {
         return winOrDrawCoef;
     }
 
-    private TeamTotalCoef parseTeamTotalCoef(Element element) {
-        TeamTotalCoef teamTotalCoef = new TeamTotalCoef();
-
-        teamTotalCoef.setITotalHome(convertDouble(getFirstNumber(element, "b", 42)));
-        teamTotalCoef.setITotalAway(convertDouble(getSecondNumber(element, "b", 42)));
-        teamTotalCoef.setOverHome(convertDouble(getFirstNumber(element, "a", 45)));
-        teamTotalCoef.setOverAway(convertDouble(getSecondNumber(element, "a", 45)));
-        teamTotalCoef.setUnderHome(convertDouble(getFirstNumber(element, "a", 50)));
-        teamTotalCoef.setUnderAway(convertDouble(getSecondNumber(element, "a", 50)));
-        return teamTotalCoef;
-    }
-
     private String getCoef(Element element, int id) {
         String result;
         Element el = element.getAllElements().get(id);
@@ -115,31 +112,6 @@ public class ParserHelper {
         }
         return result;
     }
-
-    private String getFirstNumber(Element element, String tag, int id) {
-        String result ;
-            Element element1 = element.getAllElements().get(id).getAllElements().get(0);
-            Elements els = element1.getAllElements().select(tag);
-            if (els.size() <= 1) {
-                result = "0";
-            } else {
-                result = els.get(0).text();
-            }
-        return result;
-    }
-
-    private String getSecondNumber(Element element, String tag, int id) {
-        String result ;
-            Element element1 = element.getAllElements().get(id).getAllElements().get(0);
-            Elements els = element1.getAllElements().select(tag);
-            if (els.size() <= 1) {
-                result = "0";
-            } else {
-                result = els.get(1).text();
-            }
-        return result;
-    }
-
 
     private double convertDouble(String number) {
         double result;
