@@ -1,4 +1,4 @@
-package diploma.domain.football;
+package diploma.domain.common;
 
 import lombok.Data;
 

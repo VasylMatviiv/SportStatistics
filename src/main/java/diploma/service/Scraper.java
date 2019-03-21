@@ -2,49 +2,49 @@ package diploma.service;
 
 import diploma.domain.football.FootballMatch;
 import diploma.repo.FootballRepo;
-import lombok.extern.slf4j.Slf4j;
+import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
 @Component
-@Slf4j
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class Scraper {
-    @Autowired
-    FootballRepo footballRepo;
+
+    private final FootballRepo footballRepo;
 
     private List<String> links = new ArrayList<>();
     private List<FootballMatch> matches = new CopyOnWriteArrayList<>();
-    private ExecutorService executors = Executors.newFixedThreadPool(100);
+
 
     public List<FootballMatch> parse(String url) throws IOException {
         parseLinks(url);
+        matches.clear();
         return parseData();
     }
 
     private void parseLinks(String url) throws IOException {
         Document doc = Jsoup.connect(url).get();
         ParserLinks parserLinks = new ParserLinks();
-        links = parserLinks.parse(doc);
-        footballRepo.save(new FootballMatch());
+        links = parserLinks.parseLinks(doc, ParserLinks.Sport.FOOTBALL);
     }
 
     private List<FootballMatch> parseData() {
+        ExecutorService executors = Executors.newFixedThreadPool(100);
         List<Future<List<FootballMatch>>> list = new ArrayList<>();
         links.forEach(link -> {
-            Future future = executors.submit(new Parser(link));
+            Future future = executors.submit(new ParserCallable(link));
             list.add(future);
         });
-        list.forEach(footballMatchFuture -> {
+        list.forEach(matchFuture -> {
             try {
-                matches.addAll(footballMatchFuture.get());
+                matches.addAll(matchFuture.get());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
@@ -56,23 +56,23 @@ public class Scraper {
         return matches;
     }
 
-    class Parser implements Callable<List<FootballMatch>> {
+    class ParserCallable implements Callable<List<FootballMatch>> {
         private String url;
 
-        public Parser(String url) {
+        public ParserCallable(String url) {
             this.url = url;
         }
 
         @Override
         public List<FootballMatch> call() throws Exception {
             boolean repeat;
-            ParserFootball parser = new ParserFootball(url);
+            Parser parser = new Parser(url);
             List<FootballMatch> list = null;
             do {
                 try {
                     list = parser.parseData();
                     repeat = false;
-                } catch (SocketTimeoutException e) {
+                } catch (IOException e) {
                     repeat = true;
                 }
             } while (repeat);

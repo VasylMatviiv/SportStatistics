@@ -1,8 +1,8 @@
 #mongodbspring:
 data:
   mongodb:
-    - database: sportStatistics
+    - database: parimatch
     - host: localhost
     - port: 27017
 server:
-  port: 8090
+  - port: 8080

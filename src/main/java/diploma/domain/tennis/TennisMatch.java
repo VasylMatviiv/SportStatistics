@@ -1,15 +1,15 @@
-package diploma.domain.football;
-
+package diploma.domain.tennis;
 import diploma.domain.common.TotalCoef;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
 import java.time.LocalDateTime;
+import java.util.Map;
 
 @Data
-@Document(collection = "Football")
-public class FootballMatch {
+@Document(collection = "Tennis")
+public class TennisMatch {
     @Id
     private String id;
 
@@ -17,11 +17,11 @@ public class FootballMatch {
 
     private String event;
 
-    private String title;
+    private String info;
 
     private WinCoef winCoef;
 
-    private WinOrDrawCoef winOrDrawCoef;
-
     private TotalCoef totalCoef;
+
+    private Map<Result, Double> resultDoubleMap;
 }
