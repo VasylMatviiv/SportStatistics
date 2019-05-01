@@ -1,6 +1,5 @@
 package diploma.domain.football;
 
-
 import lombok.Data;
 
 @Data

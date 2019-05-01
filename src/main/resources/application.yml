@@ -1,0 +1,8 @@
+#mongodbspring:
+data:
+  mongodb:
+    - database: parimatch
+    - host: localhost
+    - port: 27017
+server:
+  - port: 8080
